@@ -13,7 +13,7 @@ import {
   MessageSquare,
   Stethoscope,
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+
 
 const SERVICES = [
   'General Physician Consultation',
@@ -54,30 +54,23 @@ export function AppointmentForm() {
   }
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus('submitting');
-    setErrorMsg('');
+  e.preventDefault();
+  setStatus('submitting');
+  setErrorMsg('');
 
-    const { error } = await supabase.from('appointments').insert({
-      name: form.name.trim(),
-      phone: form.phone.trim(),
-      email: form.email.trim() || null,
-      service: form.service,
-      preferred_date: form.preferred_date,
-      message: form.message.trim() || null,
-    });
-
-    if (error) {
-      setStatus('error');
-      setErrorMsg(
-        'Something went wrong while submitting your request. Please try again or call us directly.'
-      );
-      return;
-    }
+  try {
+    // Simulate request
+    await new Promise((resolve) => setTimeout(resolve, 1200));
 
     setStatus('success');
     setForm(INITIAL);
+  } catch (error) {
+    setStatus('error');
+    setErrorMsg(
+      'Something went wrong while submitting your request. Please try again or call us directly.'
+    );
   }
+}
 
   const today = new Date().toISOString().split('T')[0];
 
