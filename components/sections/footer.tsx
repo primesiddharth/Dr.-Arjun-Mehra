@@ -5,6 +5,7 @@ import {
   MapPin,
   ArrowUp,
   Clock,
+  ArrowUpRight,
 } from 'lucide-react';
 
 const QUICK_LINKS = [
@@ -133,6 +134,21 @@ export function Footer() {
             Back to top
             <ArrowUp className="h-3.5 w-3.5" />
           </a>
+                 {/* Credit */}
+          <p className="flex flex-wrap font-body text-xs text-background/60 items-center justify-center gap-1.5 lg:justify-start">
+            <span>Made with</span>
+            <span className="animate-pulse text-red-500">❤</span>
+            <span>by</span>
+            <a
+              href="https://creyotech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1 font-medium hover:underline  transition-colors duration-300 hover:text-primary"
+            >
+              Creyotech IT Services
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </p>
         </div>
       </div>
     </footer>
